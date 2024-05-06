@@ -4,17 +4,16 @@ metadata:
   annotations:
     kompose.cmd: kompose -f ../docker-compose.yaml convert
     kompose.version: 1.10.0 (8bb0907)
-  creationTimestamp: null
   labels:
     io.kompose.service: cart
   name: cart
-  namespace: robot-shop
 spec:
   replicas: 1
-  strategy: {}
+  selector:
+    matchLabels:
+      io.kompose.service: cart
   template:
     metadata:
-      creationTimestamp: null
       labels:
         io.kompose.service: cart
     spec:
@@ -36,4 +35,3 @@ spec:
             cpu: 100m
             memory: 50Mi
       restartPolicy: Always
-status: {}
